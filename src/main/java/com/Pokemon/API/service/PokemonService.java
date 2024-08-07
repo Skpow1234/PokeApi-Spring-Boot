@@ -6,6 +6,7 @@ import com.Pokemon.API.model.response.PokeApiResponse;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class PokemonService {
@@ -19,6 +20,11 @@ public class PokemonService {
     public List<Pokemon> getPokemons(int page, int size) {
         int offset = (page - 1) * size;
         PokeApiResponse response = pokeApiClient.getPokemons(size, offset);
-        return response.getResults();
+        return response.getResults().stream()
+                .map(apiPokemon -> Pokemon.builder()
+                        .name(apiPokemon.getName())
+                        .url(apiPokemon.getUrl())
+                        .build())
+                .collect(Collectors.toList());
     }
 }

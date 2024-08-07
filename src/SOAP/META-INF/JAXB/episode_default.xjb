@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<bindings version="2.1" xmlns="http://java.sun.com/xml/ns/jaxb">
+  <!--
+
+Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.2 
+Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
+Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
+Generado el: 2024.08.06 a las 10:04:21 PM COT 
+
+  -->
+  <bindings scd="x-schema::tns" xmlns:tns="http://example.com/pokemon">
+    <schemaBindings map="false">
+      <package name="com.Pokemon.API.soap"/>
+    </schemaBindings>
+    <bindings scd="tns:GetPokemonsRequest">
+      <class ref="com.Pokemon.API.soap.GetPokemonsRequest"/>
+    </bindings>
+    <bindings scd="tns:GetPokemonsResponse">
+      <class ref="com.Pokemon.API.soap.GetPokemonsResponse"/>
+    </bindings>
+    <bindings scd="~tns:PokemonList">
+      <class ref="com.Pokemon.API.soap.PokemonList"/>
+    </bindings>
+    <bindings scd="~tns:Pokemon">
+      <class ref="com.Pokemon.API.soap.Pokemon"/>
+    </bindings>
+  </bindings>
+</bindings>
+

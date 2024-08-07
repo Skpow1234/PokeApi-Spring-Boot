@@ -1,7 +1,10 @@
 package com.Pokemon.API.SOAP.endpoint;
 
+
 import com.Pokemon.API.model.entity.Pokemon;
 import com.Pokemon.API.service.PokemonService;
+import com.Pokemon.API.soap.GetPokemonsRequest;
+import com.Pokemon.API.soap.GetPokemonsResponse;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
@@ -27,10 +30,10 @@ public class PokemonEndpoint {
         GetPokemonsResponse response = new GetPokemonsResponse();
         List<Pokemon> pokemons = pokemonService.getPokemons(request.getPage(), request.getSize()).stream()
                 .map(p -> {
-                    Pokemon pokemon = new Pokemon();
-                    pokemon.setName(p.getName());
-                    pokemon.setUrl(p.getUrl());
-                    return pokemon;
+                    Pokemon soapPokemon = new Pokemon();
+                    soapPokemon.setName(p.getName());
+                    soapPokemon.setUrl(p.getUrl());
+                    return soapPokemon;
                 })
                 .collect(Collectors.toList());
         response.getPokemons().getPokemon().addAll(pokemons);
